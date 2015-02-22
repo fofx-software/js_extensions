@@ -13,8 +13,9 @@ function ArrayWrap(array) {
 
 Object.getOwnPropertyNames(Array.prototype).forEach(function(method) {
   ArrayWrap.prototype[method] = function() {
-    return new ArrayWrap(
-      Array.prototype[method].apply(this.array, arguments)
+    var result = Array.prototype[method].apply(this.array, arguments)
+    return(
+      result instanceof Array ? new ArrayWrap(result) : result
     );
   }
 });
