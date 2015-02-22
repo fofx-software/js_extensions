@@ -28,3 +28,7 @@ ArrayWrap.prototype.mapDo = function(method) {
     return element[method].apply(element, args);
   });
 }
+
+ArrayWrap.prototype.lastIndex = function() {
+  return this.length() - 1;
+}
