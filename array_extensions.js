@@ -13,7 +13,9 @@ function ArrayWrap(array) {
 
 Object.getOwnPropertyNames(Array.prototype).forEach(function(method) {
   ArrayWrap.prototype[method] = function() {
-    var result = Array.prototype[method].apply(this.array, arguments)
+    var result = this.array[method] instanceof Function ?
+      this.array[method].apply(this.array, arguments) :
+      this.array[method];
     return(
       result instanceof Array ? new ArrayWrap(result) : result
     );
