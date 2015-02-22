@@ -5,13 +5,13 @@ function ArrayWrap(array) {
   //}
 }
 
-for(var prop in Object.getOwnPropertyNames(Array.prototype)) {
-  ArrayWrap.prototype[prop] = function() {
+Object.getOwnPropertyNames(Array.prototype).forEach(function(method) {
+  ArrayWrap.prototype[method] = function() {
     return new ArrayWrap(
-      Array.prototype[prop].apply(this.array, arguments)
+      Array.prototype[method].apply(this.array, arguments)
     );
   }
-}
+});
 
 ArrayWrap.prototype.mapDo = function(method) {
   var args = Array.prototype.slice.call(arguments, 1);
