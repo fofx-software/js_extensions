@@ -1,8 +1,8 @@
 function ArrayWrap(array) {
   this.array = array;
-  //for(var i = 0; i < array.length; i++) {
-  //  this[i] = array[i];
-  //}
+  for(var i = 0; i < array.length; i++) {
+    this[i] = array[i];
+  }
 }
 
 Object.getOwnPropertyNames(Array.prototype).forEach(function(method) {
