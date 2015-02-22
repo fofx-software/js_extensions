@@ -1,3 +1,9 @@
+if(typeof _ === 'undefined') {
+  _ = function(arg) {
+    if(arg instanceof Array) return new ArrayWrap(arg);
+  }
+}
+
 function ArrayWrap(array) {
   this.array = array;
   for(var i = 0; i < array.length; i++) {
