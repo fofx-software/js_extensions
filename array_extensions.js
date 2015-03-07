@@ -34,5 +34,11 @@ ArrayWrap.prototype.lastIndex = function() {
 }
 
 ArrayWrap.prototype.maxBy = function(callback) {
-  return Math.max.apply(null, this.map(callback));
+  var max;
+  this.forEach(function(element) {
+    if(max) {
+      var thisVal = callback.call(element);
+      if(thisVal > max || typeof max === 'undefined') max = element;
+  });
+  return max;
 }
