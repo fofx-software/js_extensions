@@ -41,3 +41,7 @@ ArrayWrap.prototype.maxBy = function(callback) {
   });
   return max;
 }
+
+ArrayWrap.prototype.max = function() {
+  return Math.max.apply(null, this.array);
+}
