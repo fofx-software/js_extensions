@@ -39,6 +39,7 @@ ArrayWrap.prototype.maxBy = function(callback) {
     if(max) {
       var thisVal = callback.call(element);
       if(thisVal > max || typeof max === 'undefined') max = element;
+    }
   });
   return max;
 }
