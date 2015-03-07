@@ -32,3 +32,8 @@ ArrayWrap.prototype.mapDo = function(method) {
 ArrayWrap.prototype.lastIndex = function() {
   return this.length() - 1;
 }
+
+ArrayWrap.prototype.maxBy = function(callback) {
+  var mapped = this.map(callback);
+  return Math.max.apply(null, callback);
+}
