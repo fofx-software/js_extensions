@@ -46,6 +46,10 @@ ArrayWrap.prototype.max = function() {
   return Math.max.apply(null, this.array);
 }
 
+ArrayWrap.prototype.maxOf = function(callback) {
+  return Math.max.apply(null, this.map(callback).array);
+}
+
 ArrayWrap.prototype.upTo = function(index) {
   return this.slice(0, index + 1);
 }
