@@ -55,11 +55,12 @@ ArrayWrap.prototype.upTo = function(index) {
 }
 
 ArrayWrap.prototype.sum = function(propName, startVal) {
-  return(this.reduce(function(prev, curr) {
+  var reduced = (this.reduce(function(prev, curr) {
     var currVal = curr;
     if(propName) currVal = currVal[propName];
     if(typeof currVal === 'function') currVal = currVal();
-    console.log('curr[propName]():', curr[propName]());
     return prev + currVal;
   }, startVal || 0));
+  console.log(reduced);
+  return reduced;
 }
