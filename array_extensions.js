@@ -58,7 +58,7 @@ ArrayWrap.prototype.sum = function(propName, startVal) {
   return(this.reduce(function(prev, curr) {
     var currVal = curr;
     if(propName) currVal = currVal[propName];
-    console.log('currVal:',currVal)
+    console.log(currVal());
     if(typeof currVal === 'function') currVal = currVal();
     return prev + currVal;
   }, startVal || 0));
